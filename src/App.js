@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './Form.js';
+import Task from './Task.js';
+import Count from './Count';
+import React from 'react';
 
 function App() {
+
+  const [tasks,setTasks] = React.useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="task-container" style={{maxWidth:"400px", maxHeight:"200px", display:""}}>
+      <Form setTasks={setTasks}/>
+      {tasks.map((task)=> (
+        <Task titre={task.titre} message={task.message} key={task.id}/>
+      ))}
     </div>
   );
 }
