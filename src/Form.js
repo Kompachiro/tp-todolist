@@ -22,6 +22,7 @@ export default class Form extends Component {
     getMessage = (e) => {
         this.setState({message: e.target.value});
     }
+    
     handleSubmit(event){
         event.preventDefault();
         const newItem = {

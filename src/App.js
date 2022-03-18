@@ -10,9 +10,10 @@ function App() {
 
   return (
     <div className="task-container" style={{maxWidth:"400px", maxHeight:"200px", display:""}}>
+      <h1 style={{textAlign:"center"}}>MyTodoList</h1>
       <Form setTasks={setTasks}/>
       {tasks.map((task)=> (
-        <Task titre={task.titre} message={task.message} key={task.id}/>
+        <Task titre={task.titre} message={task.message} key={task.id} tasks={tasks} setTasks={setTasks}/>
       ))}
     </div>
   );

@@ -1,7 +1,14 @@
-export default function Task({titre, message}){
+import React from "react";
 
-    function delet(){
-        
+
+export default function Task({titre, message, id, tasks, setTasks}){
+
+    const TasksList = ({ tasks, setTasks}) => {
+
+        const handleDelete = ({id}) => {
+            setTasks(tasks.filter((task) => task.id !== id));
+        }
+    
     }
 
     return(
@@ -9,8 +16,9 @@ export default function Task({titre, message}){
             <div className="task-body">
                 <h3 className="task-title">{titre}</h3>
                 <p className="task-msg">{message}</p>
-                <button type="button" onClick="this.props.deleteSearchItem" value={Task}><i className="fa fa-times"></i>supprimer</button>
+                <button type="button" onClick={() => TasksList.handleDelete(tasks.task.id)}>supprimer</button>
             </div>
         </div>
     )
+
 }
